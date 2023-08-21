@@ -10,11 +10,8 @@ function fetchBreeds(url) {
         (resp) => {
             if (!resp.ok) {
                 loaderP.classList.add("hidden")
-               Notiflix.Notify.failure('Oops! Something went wrong! Try reloading the page!');
             throw new Error(resp.statusText)
             }
-            loaderP.classList.add("hidden")
-            selectCats.classList.remove("hidden")
             return resp.json()
         }
     )
@@ -27,11 +24,9 @@ function fetchCatByBreed(id) {
         (resp) => {
              if (!resp.ok) {
                  loaderP.classList.add("hidden")
-               Notiflix.Notify.failure('Oops! Something went wrong! Try reloading the page!');
                 throw new Error(resp.statusText)
              }
-             loaderP.classList.add("hidden")
-               catInfoDiv.classList.remove("hidden")
+             
             return resp.json()
         }
     )
