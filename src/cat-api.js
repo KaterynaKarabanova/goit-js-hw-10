@@ -26,7 +26,6 @@ function fetchCatByBreed(id) {
                  loaderP.classList.add("hidden")
                 throw new Error(resp.statusText)
              }
-             
             return resp.json()
         }
     )
