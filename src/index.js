@@ -1,13 +1,14 @@
-import axios from "axios";
+// import axios from "axios";
 import { fetchBreeds, fetchCatByBreed, BREEDS_VOID, loaderP, selectCats, catInfoDiv } from "./cat-api";
 import Notiflix from 'notiflix';
-axios.defaults.headers.common["x-api-key"] = "live_cN2Up0hKvgIvqXtVFaUckvXElZKneik9YRcwu3Wa02xOF1zg0ESvEO80ojcDz33U";
+// axios.defaults.headers.common["x-api-key"] = "live_cN2Up0hKvgIvqXtVFaUckvXElZKneik9YRcwu3Wa02xOF1zg0ESvEO80ojcDz33U";
 const BASE_URL = `https://api.thecatapi.com/v1/breeds`;
 
 
 fetchBreeds(BASE_URL)
     .then((data) => selectCats.insertAdjacentHTML('beforeend', createMarkup(data)))
-    .catch(() => Notiflix.Notify.failure('Oops! Something went wrong! Try reloading the page!'))
+    .catch(() => 
+        Notiflix.Notify.failure('Oops! Something went wrong! Try reloading the page!'))
     .finally(() => {
           loaderP.classList.add("hidden")
         selectCats.classList.remove("hidden")
@@ -25,7 +26,8 @@ selectCats.addEventListener("change", (e) => fetchCatByBreed(e.currentTarget.val
 <p>${data.breeds[0].description}</p>
 <p><span class="title">Temperament:</span>${data.breeds[0].temperament}</p>
 </div>`)
-    .catch(() => Notiflix.Notify.failure('Oops! Something went wrong! Try reloading the page!'))
+    .catch(() =>
+        Notiflix.Notify.failure('Oops! Something went wrong! Try reloading the page!'))
     .finally(() => {
         loaderP.classList.add("hidden")
         catInfoDiv.classList.remove("hidden")
